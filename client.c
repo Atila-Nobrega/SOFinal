@@ -162,7 +162,7 @@ int main(int argc, char **argv){
 
 
 	if (strlen(name) > 32 || strlen(name) < 2){
-		printf("Name must be less than 30 and more than 2 characters.\n");
+		printf("O nome é necessário ter ao menos que 2 caracteres e no máximo 30 caracteres.\n");
 		return EXIT_FAILURE;
 	}
 

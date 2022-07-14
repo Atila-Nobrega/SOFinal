@@ -119,11 +119,11 @@ void *handle_client(void *arg){
 
 	// Name
 	if(recv(cli->sockfd, name, 32, 0) <= 0 || strlen(name) <  2 || strlen(name) >= 32-1){
-		printf("Didn't enter the name.\n");
+		printf("Insira o nome corretamente.\n");
 		leave_flag = 1;
 	} else{
 		strcpy(cli->name, name);
-		sprintf(buff_out, "%s has joined\n", cli->name);
+		sprintf(buff_out, "%s entrou\n", cli->name);
 		printf("%s", buff_out);
 		send_message(buff_out, cli->uid);
 	}
@@ -222,7 +222,7 @@ void *handle_client(void *arg){
 				//printf("%s -> %s\n", buff_out, cli->name);
 			}
 		} else if (receive == 0){
-			sprintf(buff_out, "%s has left\n", cli->name);
+			sprintf(buff_out, "%s saiu\n", cli->name);
 			printf("%s", buff_out);
 			send_message(buff_out, cli->uid);
 			leave_flag = 1;
@@ -292,7 +292,7 @@ int main(int argc, char **argv){
 
 		/* Check if max clients is reached */
 		if((cli_count + 1) == MAX_CLIENTS){
-			printf("Max clients reached. Rejected: ");
+			printf("Máximo de clientes cheio, rejeitado: ");
 			print_client_addr(cli_addr);
 			printf(":%d\n", cli_addr.sin_port);
 			close(connfd);
