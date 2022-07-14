@@ -156,7 +156,7 @@ int main(int argc, char **argv){
 
 	signal(SIGINT, catch_ctrl_c_and_exit);
 
-	printf("Please enter your name: ");
+	printf("Por favor insira seu nome:: ");
   fgets(name, 32, stdin);
   str_trim_lf(name, strlen(name));
 
@@ -185,7 +185,7 @@ int main(int argc, char **argv){
 	// Send name
 	send(sockfd, name, 32, 0);
 
-	printf("=== WELCOME TO THE CHATROOM ===\n");
+	printf("=== Bem-VINDO ===\n");
 
 	pthread_t send_msg_thread;
   if(pthread_create(&send_msg_thread, NULL, (void *) send_msg_handler, NULL) != 0){
